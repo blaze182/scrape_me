@@ -9,4 +9,6 @@ RSpec.describe Device, type: :model do
   it { should validate_presence_of :email }
   it { should validate_presence_of :platform_id }
   it { should validate_presence_of :manager }
+
+  it { should have_one :warranty }
 end

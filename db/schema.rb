@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622192911) do
+ActiveRecord::Schema.define(version: 20150622224001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,5 +34,16 @@ ActiveRecord::Schema.define(version: 20150622192911) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "warranties", force: :cascade do |t|
+    t.integer  "status"
+    t.date     "expiration"
+    t.integer  "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "warranties", ["device_id"], name: "index_warranties_on_device_id", using: :btree
+
   add_foreign_key "devices", "platforms"
+  add_foreign_key "warranties", "devices"
 end
