@@ -1,0 +1,29 @@
+h1 Listing devices
+
+table
+  thead
+    tr
+      th Imei
+      th Platform
+      th Location
+      th Email
+      th Manager
+      th
+      th
+      th
+
+  tbody
+    - @devices.each do |device|
+      tr
+        td = device.imei
+        td = device.platform
+        td = device.location
+        td = device.email
+        td = device.manager
+        td = link_to 'Show', device
+        td = link_to 'Edit', edit_device_path(device)
+        td = link_to 'Destroy', device, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Device', new_device_path

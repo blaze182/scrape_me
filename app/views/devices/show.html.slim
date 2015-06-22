@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Imei:
+  = @device.imei
+p
+  strong Platform:
+  = @device.platform
+p
+  strong Location:
+  = @device.location
+p
+  strong Email:
+  = @device.email
+p
+  strong Manager:
+  = @device.manager
+
+= link_to 'Edit', edit_device_path(@device)
+'|
+= link_to 'Back', devices_path
