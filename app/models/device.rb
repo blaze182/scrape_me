@@ -3,5 +3,5 @@ class Device < ActiveRecord::Base
 
   validates :email, email: true, presence: true
   validates :imei, imei: true, presence: true, uniqueness: true
-  validates :platform, :manager, presence: true
+  validates :platform_id, :manager, presence: true
 end

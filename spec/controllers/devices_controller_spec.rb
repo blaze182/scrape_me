@@ -23,12 +23,36 @@ RSpec.describe DevicesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Device. As you add validations to Device, be sure to
   # adjust the attributes here as well.
+  let(:platform) { Platform.create(name: 'ios') }
+
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      imei: "356938035643809",
+      platform: platform,
+      location: "MyString",
+      email: "qwe@qwe.com",
+      manager: "MyString"
+    }
+  }
+
+  let(:post_attributes) {
+    {
+      imei: "356938035643809",
+      platform_id: platform,
+      location: "MyString",
+      email: "qwe@qwe.com",
+      manager: "MyString"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {
+      imei: "35693803564389",
+      platform: platform,
+      location: "MyString",
+      email: "qwe@qwe.com",
+      manager: "MyString"
+    }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -71,18 +95,18 @@ RSpec.describe DevicesController, type: :controller do
     context "with valid params" do
       it "creates a new Device" do
         expect {
-          post :create, {:device => valid_attributes}, valid_session
+          post :create, {:device => post_attributes}, valid_session
         }.to change(Device, :count).by(1)
       end
 
       it "assigns a newly created device as @device" do
-        post :create, {:device => valid_attributes}, valid_session
+        post :create, {:device => post_attributes}, valid_session
         expect(assigns(:device)).to be_a(Device)
         expect(assigns(:device)).to be_persisted
       end
 
       it "redirects to the created device" do
-        post :create, {:device => valid_attributes}, valid_session
+        post :create, {:device => post_attributes}, valid_session
         expect(response).to redirect_to(Device.last)
       end
     end
@@ -103,14 +127,20 @@ RSpec.describe DevicesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          imei: "356938035643809",
+          platform: platform,
+          location: "MyStrng",
+          email: "qwe@qwe.com",
+          manager: "MyString"
+        }
       }
 
       it "updates the requested device" do
         device = Device.create! valid_attributes
         put :update, {:id => device.to_param, :device => new_attributes}, valid_session
         device.reload
-        skip("Add assertions for updated state")
+        expect(device.location).to eq(new_attributes[:location])
       end
 
       it "assigns the requested device as @device" do

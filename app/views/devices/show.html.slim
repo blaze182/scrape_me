@@ -5,7 +5,7 @@ p
   = @device.imei
 p
   strong Platform:
-  = @device.platform.name
+  = @device.platform.try(:name)
 p
   strong Location:
   = @device.location
