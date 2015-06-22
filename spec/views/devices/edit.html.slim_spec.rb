@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "devices/edit", type: :view do
   before(:each) do
+    @platform = assign(:platform, Platform.create!(
+      :name => "MyString"
+    ))
     @device = assign(:device, Device.create!(
-      :imei => "MyString",
-      :platform => nil,
+      :imei => "356938035643809",
+      :platform => @platform,
       :location => "MyString",
-      :email => "MyString",
+      :email => "qwe@qwe.com",
       :manager => "MyString"
     ))
   end
@@ -18,7 +21,7 @@ RSpec.describe "devices/edit", type: :view do
 
       assert_select "input#device_imei[name=?]", "device[imei]"
 
-      assert_select "select#device_platform[name=?]", "device[platform]"
+      assert_select "select#device_platform_id[name=?]", "device[platform_id]"
 
       assert_select "input#device_location[name=?]", "device[location]"
 

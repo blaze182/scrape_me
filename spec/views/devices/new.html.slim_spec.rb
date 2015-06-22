@@ -18,7 +18,7 @@ RSpec.describe "devices/new", type: :view do
 
       assert_select "input#device_imei[name=?]", "device[imei]"
 
-      assert_select "select#device_platform[name=?]", "device[platform]"
+      assert_select "select#device_platform_id[name=?]", "device[platform_id]"
 
       assert_select "input#device_location[name=?]", "device[location]"
 

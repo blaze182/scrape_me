@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Validations for email, imei
+gem 'missing_validators'
+
 group :development, :test do
   # Call 'pry' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
@@ -47,5 +50,6 @@ group :development, :test do
 
   # rspec and factory
   gem 'rspec-rails', '~> 3.0'
+  
+  gem 'shoulda-matchers'
 end
-

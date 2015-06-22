@@ -16,7 +16,7 @@ table
     - @devices.each do |device|
       tr
         td = device.imei
-        td = device.platform
+        td = device.platform.name
         td = device.location
         td = device.email
         td = device.manager
