@@ -2,7 +2,7 @@ h1 Editing device
 
 == render 'form'
 
-= link_to 'Show', @device
-'|
-= link_to 'Back', devices_path
+.center-align
+  = link_to icon('caret-left')+' Back', devices_path, class: 'btn-flat'
+  = link_to icon('eye')+' Show', @device, class: 'btn-flat'
 

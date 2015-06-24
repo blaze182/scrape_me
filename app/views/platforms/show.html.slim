@@ -1,12 +1,14 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @platform.name
-p
-  strong Warranty provider:
-  = @platform.warranty_provider
-
-= link_to 'Edit', edit_platform_path(@platform)
-'|
-= link_to 'Back', platforms_path
+.row
+  .col.s12.m8.offset-m2
+    .card
+      .card-image
+        img src='http://materializecss.com/images/sample-1.jpg'
+        span.card-title = @platform.name
+      .card-content
+        h5 Warranty provider
+        p = @platform.warranty_provider ? @platform.warranty_provider : 'None'
+      .card-action
+        = link_to icon('caret-left')+' Back', platforms_path, class: 'btn-flat'
+        = link_to icon('edit')+' Edit', edit_platform_path(@platform), class: 'btn-flat'

@@ -55,6 +55,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.5.2)
+    font-awesome-sass (4.3.2.1)
+      sass (~> 3.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -71,6 +73,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    materialize-sass (0.96.2)
+      sass (~> 3.3)
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
@@ -194,9 +198,11 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.1.0)
+  font-awesome-sass
   iscraper
   jbuilder (~> 2.0)
   jquery-rails
+  materialize-sass
   missing_validators
   pg
   pry

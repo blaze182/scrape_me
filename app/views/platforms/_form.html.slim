@@ -5,11 +5,11 @@
       ul
         - @platform.errors.full_messages.each do |message|
           li = message
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :warranty_provider
-    = f.select :warranty_provider, Platform.warranty_providers.keys.to_a, include_blank: 'none'
-  .actions = f.submit
+  .row
+    .field.col.s9
+      = f.label :name
+      = f.text_field :name
+    .field.col.s3
+      = f.label :warranty_provider
+      = f.select :warranty_provider, Platform.warranty_providers.keys.to_a, {include_blank: 'none'}, {class: 'browser-default'}
+  .actions = f.submit class: 'btn'

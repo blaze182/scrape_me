@@ -10,6 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+@import "./*";
+@import "materialize/components/color";
+$primary-color: color("blue", "darken-3") !default;
+$secondary-color: color("blue", "darken-2") !default;
+@import "materialize";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 0 0 100px; /* bottom = footer height */
+}
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    padding-top: 25px;
+}

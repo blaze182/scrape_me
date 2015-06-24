@@ -1,30 +1,26 @@
 p#notice = notice
 
-p
-  strong Imei:
-  = @device.imei
-p
-  strong Platform:
-  = @device.platform.try(:name)
-p
-  strong Location:
-  = @device.location
-p
-  strong Email:
-  = @device.email
-p
-  strong Manager:
-  = @device.manager
 
-- if @device.warranty
-  p
-    strong Warranty:
-    = @device.warranty.status.titleize.gsub 'Of', 'of'
+.row
+  .col.s12.m8.offset-m2
+    .card
+      .card-image
+        img src='http://materializecss.com/images/sample-1.jpg'
+        span.card-title
+          = @device.platform.try(:name)
+          |  device #
+          = @device.imei
+      .card-content
+        - if @device.location != "" and @device.location != nil
+          h5 Location
+          p = @device.location
+        h5 Manager
+        p.flow-text = @device.manager
+        p = @device.email
+        - if @device.warranty.try(:status)
+          p
+            span.flow-text class=('tooltipped' if @device.warranty.expiration) data-position='right' data-delay="50" data-tooltip=('Expiration date: '+@device.warranty.expiration.to_s if @device.warranty.expiration) = @device.warranty.status.titleize.gsub 'Of', 'of'
                                             / "Out Of Warranty" -> "Out of Warranty"
-    - if @device.warranty.expiration
-      strong Expiration
-      = @device.warranty.expiration
-
-= link_to 'Edit', edit_device_path(@device)
-'|
-= link_to 'Back', devices_path
+      .card-action
+        = link_to icon('caret-left')+' Back', devices_path, class: 'btn-flat'
+        = link_to icon('edit')+' Edit', edit_device_path(@device), class: 'btn-flat'

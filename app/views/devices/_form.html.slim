@@ -5,20 +5,21 @@
       ul
         - @device.errors.full_messages.each do |message|
           li = message
-
-  .field
-    = f.label :imei, 'IMEI'
-    = f.text_field :imei
-  .field
-    = f.label :platform_id
-    = f.collection_select :platform_id, Platform.all, :id, :name, prompt: true
+  .row
+    .field.col.s9
+      = f.label :imei, 'IMEI'
+      = f.text_field :imei
+    .field.col.s3
+      = f.label :platform_id
+      = f.collection_select :platform_id, Platform.all, :id, :name, {prompt: true}, {class: 'browser-default'}
   .field
     = f.label :location
     = f.text_field :location
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :manager
-    = f.text_field :manager
-  .actions = f.submit
+  .row
+    .field.col.s6
+      = f.label :email
+      = f.text_field :email
+    .field.col.s6
+      = f.label :manager
+      = f.text_field :manager
+  .actions = f.submit class: 'btn'

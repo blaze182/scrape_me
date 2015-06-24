@@ -1,6 +1,6 @@
 h1 Listing platforms
 
-table
+table.striped
   thead
     tr
       th Name
@@ -14,10 +14,9 @@ table
       tr
         td = platform.name
         td = platform.warranty_provider
-        td = link_to 'Show', platform
-        td = link_to 'Edit', edit_platform_path(platform)
-        td = link_to 'Destroy', platform, data: {:confirm => 'Are you sure?'}, :method => :delete
-
+        td = link_to icon('eye')+' Show', platform, class: 'waves-effect'
+        td = link_to icon('edit')+' Edit', edit_platform_path(platform), class: 'waves-effect'
+        td = link_to icon('trash')+' Destroy', platform, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'waves-effect'
 br
 
-= link_to 'New Platform', new_platform_path
+= link_to 'New Platform', new_platform_path, class: 'btn-large'

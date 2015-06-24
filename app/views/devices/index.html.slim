@@ -1,6 +1,6 @@
 h1 Listing devices
 
-table
+table.striped
   thead
     tr
       th Imei
@@ -20,10 +20,10 @@ table
         td = device.location
         td = device.email
         td = device.manager
-        td = link_to 'Show', device
-        td = link_to 'Edit', edit_device_path(device)
-        td = link_to 'Destroy', device, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to icon('eye')+' Show', device, class: 'waves-effect'
+        td = link_to icon('edit')+' Edit', edit_device_path(device), class: 'waves-effect'
+        td = link_to icon('trash')+' Destroy', device, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'waves-effect'
 
 br
 
-= link_to 'New Device', new_device_path
+= link_to 'New Device', new_device_path, class: 'btn-large'
