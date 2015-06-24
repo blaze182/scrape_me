@@ -10,7 +10,7 @@ RSpec.describe Device, type: :model do
   it { should validate_presence_of :platform_id }
   it { should validate_presence_of :manager }
 
-  it { should have_one :warranty }
+  it { should have_one(:warranty).dependent(:destroy) }
 
   let(:apple_platform) { Platform.create(name: 'ios', warranty_provider: 'apple') }
   let(:not_apple_platform) { Platform.create(name: 'android') }

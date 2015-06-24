@@ -1,6 +1,6 @@
 class Device < ActiveRecord::Base
   belongs_to :platform
-  has_one :warranty
+  has_one :warranty, dependent: :destroy
 
   validates :email, email: true, presence: true
   validates :imei, imei: true, presence: true, uniqueness: true

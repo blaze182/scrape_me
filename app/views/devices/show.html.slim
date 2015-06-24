@@ -16,6 +16,15 @@ p
   strong Manager:
   = @device.manager
 
+- if @device.warranty
+  p
+    strong Warranty:
+    = @device.warranty.status.titleize.gsub 'Of', 'of'
+                                            / "Out Of Warranty" -> "Out of Warranty"
+    - if @device.warranty.expiration
+      strong Expiration
+      = @device.warranty.expiration
+
 = link_to 'Edit', edit_device_path(@device)
 '|
 = link_to 'Back', devices_path
