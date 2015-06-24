@@ -15,12 +15,15 @@ p#notice = notice
           h5 Location
           p = @device.location
         h5 Manager
-        p.flow-text = @device.manager
-        p = @device.email
+        p = @device.manager
+        p = mail_to @device.email
         - if @device.warranty.try(:status)
           p
             span.flow-text class=('tooltipped' if @device.warranty.expiration) data-position='right' data-delay="50" data-tooltip=('Expiration date: '+@device.warranty.expiration.to_s if @device.warranty.expiration) = @device.warranty.status.titleize.gsub 'Of', 'of'
                                             / "Out Of Warranty" -> "Out of Warranty"
+        - elsif @device.warranty # warranty should be, but didn't load for some reason
+          p
+            span No warranty data
       .card-action
         = link_to icon('caret-left')+' Back', devices_path, class: 'btn-flat'
         = link_to icon('edit')+' Edit', edit_device_path(@device), class: 'btn-flat'
