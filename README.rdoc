@@ -1,9 +1,12 @@
 == Scrape Me
 
 This is <tt>iscraper</tt> gem showcase application for Ruby 2.2.2 and Rails 4.2.2.
+
 Demo: https://iscraper.herokuapp.com/devices
 
-It can store your device directory and keep warranty statuses up-to-date.
+http://blaze182.github.io/iscraper.png
+
+The application can store your device directory and keep warranty statuses up-to-date.
 
 For warranties batch update you can use rake task:
 <tt>rake scraper:run</tt>
