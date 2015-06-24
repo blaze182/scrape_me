@@ -2,7 +2,7 @@
 
 This is <tt>iscraper</tt> gem showcase application for Ruby 2.2.2 and Rails 4.2.2.
 
-Demo: https://iscraper.herokuapp.com/devices
+Demo: https://iscraper.herokuapp.com/
 
 http://blaze182.github.io/iscraper.png
 
